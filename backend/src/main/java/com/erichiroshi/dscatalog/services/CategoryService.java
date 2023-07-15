@@ -33,4 +33,10 @@ public class CategoryService {
 				.orElseThrow(() -> new ResourceNotFoundException("Entity not found. Id: " + id));
 		return mapper.toDTO(entity);
 	}
+
+	@Transactional
+	public CategoryDTO insert(CategoryDTO dto) {
+		Category entity = repository.save(mapper.toCategory(dto));
+		return mapper.toDTO(entity);
+	}
 }
