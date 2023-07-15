@@ -39,4 +39,13 @@ public class CategoryService {
 		Category entity = repository.save(mapper.toCategory(dto));
 		return mapper.toDTO(entity);
 	}
+
+	@Transactional
+	public CategoryDTO update(Long id, CategoryDTO dto) {
+		CategoryDTO entityDTO = findById(id);
+		Category entity = mapper.toCategory(entityDTO);
+		mapper.update(dto, entity);
+		entity = repository.save(entity);
+		return mapper.toDTO(entity);
+	}
 }
