@@ -3,6 +3,8 @@ package com.erichiroshi.dscatalog.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -10,6 +12,7 @@ import com.erichiroshi.dscatalog.dto.CategoryDTO;
 import com.erichiroshi.dscatalog.entities.Category;
 import com.erichiroshi.dscatalog.mappers.CategoryMapper;
 import com.erichiroshi.dscatalog.repositories.CategoryRepository;
+import com.erichiroshi.dscatalog.services.exceptions.DatabaseException;
 import com.erichiroshi.dscatalog.services.exceptions.ResourceNotFoundException;
 
 @Service
@@ -47,5 +50,16 @@ public class CategoryService {
 		mapper.update(dto, entity);
 		entity = repository.save(entity);
 		return mapper.toDTO(entity);
+	}
+
+	public void delete(Long id) {
+		try {
+			findById(id);
+			repository.deleteById(id);
+		} catch (EmptyResultDataAccessException e) {
+			throw new ResourceNotFoundException("Entity not found. Id = " + id);
+		} catch (DataIntegrityViolationException e) {
+			throw new DatabaseException("Integrity constraint violation");
+		}
 	}
 }
