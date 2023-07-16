@@ -12,9 +12,12 @@ public interface CategoryMapper {
 
 	CategoryDTO toDTO(Category entity);
 
+	@Mapping(target = "created_At", ignore = true)
 	Category toCategory(CategoryDTO dto);
 
-	@Mapping(target = "id", ignore = true)
+	@Mapping(target = "products", ignore = true)
+	@Mapping(target = "created_At", ignore = true)
+    @Mapping(target = "id", ignore = true)
     void update(CategoryDTO dto, @MappingTarget Category entity);
 
 }
