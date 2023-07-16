@@ -56,6 +56,7 @@ public class CategoryService {
 		try {
 			findById(id);
 			repository.deleteById(id);
+			repository.flush();
 		} catch (DataIntegrityViolationException e) {
 			throw new DatabaseException("Integrity constraint violation");
 		}
