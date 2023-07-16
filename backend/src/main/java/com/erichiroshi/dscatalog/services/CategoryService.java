@@ -1,10 +1,9 @@
 package com.erichiroshi.dscatalog.services;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,9 +24,9 @@ public class CategoryService {
 	private CategoryMapper mapper;
 
 	@Transactional(readOnly = true)
-	public List<CategoryDTO> findAll() {
-		List<Category> list = repository.findAll();
-		return list.stream().map(x -> mapper.toDTO(x)).toList();
+	public Page<CategoryDTO> findAllPaged(PageRequest pageRequest) {
+		Page<Category> list = repository.findAll(pageRequest);
+		return list.map(x -> mapper.toDTO(x));
 	}
 
 	@Transactional(readOnly = true)
@@ -52,12 +51,11 @@ public class CategoryService {
 		return mapper.toDTO(entity);
 	}
 
+	@Transactional
 	public void delete(Long id) {
 		try {
 			findById(id);
 			repository.deleteById(id);
-		} catch (EmptyResultDataAccessException e) {
-			throw new ResourceNotFoundException("Entity not found. Id = " + id);
 		} catch (DataIntegrityViolationException e) {
 			throw new DatabaseException("Integrity constraint violation");
 		}

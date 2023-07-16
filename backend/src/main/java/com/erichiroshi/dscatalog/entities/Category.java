@@ -1,7 +1,9 @@
 package com.erichiroshi.dscatalog.entities;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -31,4 +33,8 @@ public class Category implements Serializable {
 	private Long id;
 
 	private String name;
+
+	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+	private LocalDateTime created_At;
+
 }
