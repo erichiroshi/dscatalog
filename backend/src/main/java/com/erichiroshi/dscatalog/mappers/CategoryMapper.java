@@ -12,6 +12,7 @@ public interface CategoryMapper {
 
 	CategoryDTO toDTO(Category entity);
 
+	@Mapping(target = "products", ignore = true)
 	@Mapping(target = "created_At", ignore = true)
 	Category toCategory(CategoryDTO dto);
 
