@@ -2,8 +2,8 @@ package com.erichiroshi.dscatalog.entities;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -42,7 +42,7 @@ public class Category implements Serializable {
 	private LocalDateTime updatedAt;
 
 	@ManyToMany(mappedBy = "categories")
-	private final List<Product> products = new ArrayList<>();
+	private final Set<Product> products = new HashSet<>();
 
 	public Category(Long id, String name) {
 		this.id = id;
