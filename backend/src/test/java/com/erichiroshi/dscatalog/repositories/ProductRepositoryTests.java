@@ -8,7 +8,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Optional;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -59,7 +58,7 @@ public class ProductRepositoryTests {
 
 	@Test
 	@DisplayName("Não deve lançar Exception Quando o Id não existir.")
-	public void deleteShouldNotThrowExcpetionWhenIdDoesNotExist() {
+	public void delete_NOK_idNotExists() {
 
 		assertDoesNotThrow(() -> {
 			repository.deleteById(nonExintingId);

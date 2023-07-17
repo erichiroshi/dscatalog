@@ -13,12 +13,14 @@ public interface CategoryMapper {
 	CategoryDTO toDTO(Category entity);
 
 	@Mapping(target = "products", ignore = true)
-	@Mapping(target = "created_At", ignore = true)
+	@Mapping(target = "createdAt", ignore = true)
+	@Mapping(target = "updatedAt", ignore = true)
 	Category toCategory(CategoryDTO dto);
 
 	@Mapping(target = "products", ignore = true)
-	@Mapping(target = "created_At", ignore = true)
-    @Mapping(target = "id", ignore = true)
-    void update(CategoryDTO dto, @MappingTarget Category entity);
+	@Mapping(target = "createdAt", ignore = true)
+	@Mapping(target = "updatedAt", ignore = true)
+	@Mapping(target = "id", ignore = true)
+	void update(CategoryDTO dto, @MappingTarget Category entity);
 
 }

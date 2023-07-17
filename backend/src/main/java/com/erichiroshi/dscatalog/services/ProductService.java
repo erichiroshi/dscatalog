@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.erichiroshi.dscatalog.dto.ProductDTO;
 import com.erichiroshi.dscatalog.entities.Product;
 import com.erichiroshi.dscatalog.mappers.ProductMapper;
+import com.erichiroshi.dscatalog.mappers.ProductMapperImpl;
 import com.erichiroshi.dscatalog.repositories.ProductRepository;
 import com.erichiroshi.dscatalog.services.exceptions.DatabaseException;
 import com.erichiroshi.dscatalog.services.exceptions.ResourceNotFoundException;
@@ -20,8 +21,7 @@ public class ProductService {
 	@Autowired
 	private ProductRepository repository;
 
-	@Autowired
-	private ProductMapper mapper;
+	private ProductMapper mapper = new ProductMapperImpl();
 
 	@Transactional(readOnly = true)
 	public Page<ProductDTO> findAllPaged(Pageable pageable) {
