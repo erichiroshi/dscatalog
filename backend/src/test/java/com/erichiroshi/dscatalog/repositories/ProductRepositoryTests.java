@@ -4,9 +4,11 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Optional;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -62,6 +64,24 @@ public class ProductRepositoryTests {
 		assertDoesNotThrow(() -> {
 			repository.deleteById(nonExintingId);
 		});
+	}
+
+	@Test
+	@DisplayName("Deve retornar um Optional<Product> não vazio Quando o id existir.")
+	public void findById_OK_idExists() {
+		Optional<Product> result = repository.findById(exintingId);
+
+		assertNotNull(result);
+		assertTrue(result.isPresent());
+		assertEquals(exintingId, result.get().getId());
+	}
+
+	@Test
+	@DisplayName("Deve retornar um Optional<Product> vazio Quando o id não existir.")
+	public void findById_Empty_idNotExists() {
+		Optional<Product> result = repository.findById(nonExintingId);
+
+		assertTrue(result.isEmpty());
 	}
 
 }
