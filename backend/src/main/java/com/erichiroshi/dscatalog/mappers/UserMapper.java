@@ -5,6 +5,7 @@ import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 
 import com.erichiroshi.dscatalog.dto.UserDTO;
+import com.erichiroshi.dscatalog.dto.UserUpdateDTO;
 import com.erichiroshi.dscatalog.entities.User;
 
 @Mapper(componentModel = "spring")
@@ -16,5 +17,5 @@ public interface UserMapper {
 	UserDTO toDTO(User entity);
 
 	@Mapping(target = "id", ignore = true)
-	void update(UserDTO dto, @MappingTarget UserDTO entityDTO);
+    void update(UserUpdateDTO updateDTO, @MappingTarget UserDTO entityDTO);
 }

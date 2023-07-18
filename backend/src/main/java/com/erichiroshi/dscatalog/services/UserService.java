@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.erichiroshi.dscatalog.dto.UserDTO;
 import com.erichiroshi.dscatalog.dto.UserInsertDTO;
+import com.erichiroshi.dscatalog.dto.UserUpdateDTO;
 import com.erichiroshi.dscatalog.entities.User;
 import com.erichiroshi.dscatalog.mappers.UserMapper;
 import com.erichiroshi.dscatalog.mappers.UserMapperImpl;
@@ -52,10 +53,9 @@ public class UserService {
 	}
 
 	@Transactional
-	public UserDTO update(Long id, UserDTO dto) {
+	public UserDTO update(Long id, UserUpdateDTO updateDTO) {
 		UserDTO entityDTO = findById(id);
-		mapper.update(dto, entityDTO);
-		System.out.println(entityDTO.getId());
+		mapper.update(updateDTO, entityDTO);
 		User entity = mapper.toUser(entityDTO);
 		entity = repository.save(entity);
 		return mapper.toDTO(entity);
