@@ -2,6 +2,8 @@ package com.erichiroshi.dscatalog.resources;
 
 import java.net.URI;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -18,8 +20,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.erichiroshi.dscatalog.dto.ProductDTO;
 import com.erichiroshi.dscatalog.services.ProductService;
-
-import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/products")

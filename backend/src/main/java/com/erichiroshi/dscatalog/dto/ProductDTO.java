@@ -6,12 +6,13 @@ import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
-import jakarta.persistence.Column;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.PastOrPresent;
-import jakarta.validation.constraints.Positive;
-import jakarta.validation.constraints.Size;
+import javax.persistence.Column;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.PastOrPresent;
+import javax.validation.constraints.Positive;
+import javax.validation.constraints.Size;
+
 import lombok.Data;
 
 @Data

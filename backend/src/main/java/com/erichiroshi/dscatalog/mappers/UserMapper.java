@@ -11,6 +11,7 @@ import com.erichiroshi.dscatalog.entities.User;
 @Mapper(componentModel = "spring")
 public interface UserMapper {
 
+    @Mapping(target = "authorities", ignore = true)
 	@Mapping(target = "password", ignore = true)
 	User toUser(UserDTO dto);
 

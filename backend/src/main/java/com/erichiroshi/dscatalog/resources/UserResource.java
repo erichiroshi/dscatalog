@@ -2,6 +2,8 @@ package com.erichiroshi.dscatalog.resources;
 
 import java.net.URI;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -20,8 +22,6 @@ import com.erichiroshi.dscatalog.dto.UserDTO;
 import com.erichiroshi.dscatalog.dto.UserInsertDTO;
 import com.erichiroshi.dscatalog.dto.UserUpdateDTO;
 import com.erichiroshi.dscatalog.services.UserService;
-
-import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/users")
