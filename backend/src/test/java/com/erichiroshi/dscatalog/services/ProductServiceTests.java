@@ -14,7 +14,6 @@ import static org.mockito.Mockito.when;
 import java.util.List;
 import java.util.Optional;
 
-import org.assertj.core.util.Arrays;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -29,7 +28,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.erichiroshi.dscatalog.dto.ProductDTO;
-import com.erichiroshi.dscatalog.entities.Category;
 import com.erichiroshi.dscatalog.entities.Product;
 import com.erichiroshi.dscatalog.repositories.ProductRepository;
 import com.erichiroshi.dscatalog.services.exceptions.DatabaseException;
