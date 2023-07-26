@@ -1,9 +1,9 @@
 package com.erichiroshi.dscatalog.repositories;
 
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Optional;
@@ -13,6 +13,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.dao.EmptyResultDataAccessException;
 
 import com.erichiroshi.dscatalog.entities.Product;
 import com.erichiroshi.dscatalog.tests.Factory;
@@ -57,10 +58,10 @@ public class ProductRepositoryTests {
 	}
 
 	@Test
-	@DisplayName("Não deve lançar Exception Quando o Id não existir.")
-	public void delete_NOK_idNotExists() {
+	@DisplayName("Deve lancar EmptyResultDataAccessException Quando o Id não existir.")
+	public void delete_Excpetion_idNotExists() {
 
-		assertDoesNotThrow(() -> {
+		assertThrows(EmptyResultDataAccessException.class, () -> {
 			repository.deleteById(nonExintingId);
 		});
 	}
