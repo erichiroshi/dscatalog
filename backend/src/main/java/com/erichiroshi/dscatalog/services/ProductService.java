@@ -8,9 +8,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.erichiroshi.dscatalog.dto.ProductDTO;
+import com.erichiroshi.dscatalog.entities.Category;
 import com.erichiroshi.dscatalog.entities.Product;
 import com.erichiroshi.dscatalog.mappers.ProductMapper;
 import com.erichiroshi.dscatalog.mappers.ProductMapperImpl;
+import com.erichiroshi.dscatalog.repositories.CategoryRepository;
 import com.erichiroshi.dscatalog.repositories.ProductRepository;
 import com.erichiroshi.dscatalog.services.exceptions.DatabaseException;
 import com.erichiroshi.dscatalog.services.exceptions.ResourceNotFoundException;
@@ -21,18 +23,21 @@ public class ProductService {
 	@Autowired
 	private ProductRepository repository;
 
+	@Autowired
+	private CategoryRepository categoryRepository;
+
 	private ProductMapper mapper = new ProductMapperImpl();
 
 	@Transactional(readOnly = true)
-	public Page<ProductDTO> findAllPaged(Pageable pageable) {
-		Page<Product> list = repository.findAll(pageable);
+	public Page<ProductDTO> findAllPaged(Long categoryId, Pageable pageable) {
+		Category category = (categoryId == 0) ? null : categoryRepository.getReferenceById(categoryId);
+		Page<Product> list = repository.find(category, pageable);
 		return list.map(x -> mapper.toDTO(x));
 	}
 
 	@Transactional(readOnly = true)
 	public ProductDTO findById(Long id) {
-		Product entity = repository.findById(id)
-				.orElseThrow(() -> new ResourceNotFoundException("Entity not found. Id: " + id));
+		Product entity = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Entity not found. Id: " + id));
 		return mapper.toDTO(entity);
 	}
 
