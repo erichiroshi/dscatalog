@@ -1,5 +1,8 @@
 package com.erichiroshi.dscatalog.services;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
@@ -30,9 +33,9 @@ public class ProductService {
 
 	@Transactional(readOnly = true)
 	public Page<ProductDTO> findAllPaged(Long categoryId, String name, Pageable pageable) {
-		Category category = (categoryId == 0) ? null : categoryRepository.getReferenceById(categoryId);
-		Page<Product> list = repository.find(category, name, pageable);
-		return list.map(x -> mapper.toDTO(x));
+		List<Category> categories = (categoryId == 0) ? null : Arrays.asList(categoryRepository.getOne(categoryId));
+		Page<Product> page = repository.find(categories, name, pageable);
+		return page.map(x -> mapper.toDTO(x));
 	}
 
 	@Transactional(readOnly = true)
