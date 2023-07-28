@@ -1,0 +1,20 @@
+GERAR O BUILD DA APP:
+	
+	.\mvnw clean package (Perfil test)
+	.\mvnw clean package -DskipTests (Perfil dev e prod)
+	
+GERAR A IMAGEM:
+	
+	docker build -t dscatalog:v1 .
+
+COMANDO PARA RODAR NO DOCKER:
+
+	docker run -d -p 8080:8080 --name container-dscatalog
+	-e APP_PROFILE=dev
+	-e DB_URL=jdbc:postgresql://dev-postgresql-12:5432/
+	-e DB_USERNAME=postgres
+	-e DB_PASSWORD=1234567
+	--network backend_dev-network
+	dscatalog:v1
+	
+	docker run -d -p 8080:8080 --name container-dscatalog -e APP_PROFILE=dev -e DB_URL=jdbc:postgresql://dev-postgresql-12:5432/ -e DB_USERNAME=postgres -e DB_PASSWORD=1234567 --network backend_dev-network dscatalog:v1
