@@ -16,10 +16,17 @@ PERFIL DEV:
 	-e DB_URL=jdbc:postgresql://dev-postgresql-12:5432/
 	-e DB_USERNAME=postgres
 	-e DB_PASSWORD=1234567
+	-e AWS_KEY=???
+	-e AWS_SECRET=???
+	-e DSCATALOG_BUCKET_NAME=???
+	-e DSCATALOG_BUCKET_REGION=???
 	--network backend_dev-network
 	dscatalog:v1
 	
-	docker run -d -p 8080:8080 --name container-dscatalog -e APP_PROFILE=dev -e DB_URL=jdbc:postgresql://dev-postgresql-12:5432/ -e DB_USERNAME=postgres -e DB_PASSWORD=1234567 --network backend_dev-network dscatalog:v1
+
+	
+	
+	docker run -d -p 8080:8080 --name container-dscatalog -e APP_PROFILE=dev -e DB_URL=jdbc:postgresql://dev-postgresql-12:5432/dscatalog -e DB_USERNAME=postgres -e DB_PASSWORD=1234567 -e AWS_KEY=? -e AWS_SECRET=? -e DSCATALOG_BUCKET_NAME=? -e DSCATALOG_BUCKET_REGION=? --network backend_dev-network dscatalog:v1
 	
 PERFIL PROD:
 
@@ -32,6 +39,10 @@ PERFIL PROD:
 	-e CLIENT_SECRET=dscatalog123
 	-e JWT_SECRET=MY-JWT-SECRET
 	-e JWT_DURATION=86400
+	-e AWS_KEY=???
+	-e AWS_SECRET=???
+	-e DSCATALOG_BUCKET_NAME=???
+	-e DSCATALOG_BUCKET_REGION=???
 	dscatalog:v1
 	
-docker run -d -p 8080:8080 --name prod-dscatalog -e APP_PROFILE=prod -e DB_URL=jdbc:postgresql://silly.db.elephantsql.com:5432/hkkvmfpa -e DB_USERNAME=hkkvmfpa -e DB_PASSWORD=cMEHoTcJRIVG1ACAkTGjAyGazYDPXXkz -e CLIENT_ID=dscatalog -e CLIENT_SECRET=dscatalog123 -e JWT_SECRET=MY-JWT-SECRET -e JWT_DURATION=86400 dscatalog:v1
+docker run -d -p 8080:8080 --name prod-dscatalog -e APP_PROFILE=prod -e DB_URL=jdbc:postgresql://silly.db.elephantsql.com:5432/hkkvmfpa -e DB_USERNAME=hkkvmfpa -e DB_PASSWORD=cMEHoTcJRIVG1ACAkTGjAyGazYDPXXkz -e CLIENT_ID=dscatalog -e CLIENT_SECRET=dscatalog123 -e JWT_SECRET=MY-JWT-SECRET -e JWT_DURATION=86400 -e AWS_KEY=? -e AWS_SECRET=? -e DSCATALOG_BUCKET_NAME=? -e DSCATALOG_BUCKET_REGION=? dscatalog:v1
