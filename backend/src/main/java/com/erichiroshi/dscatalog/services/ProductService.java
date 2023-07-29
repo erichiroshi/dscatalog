@@ -1,5 +1,6 @@
 package com.erichiroshi.dscatalog.services;
 
+import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
 
@@ -9,8 +10,10 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.erichiroshi.dscatalog.dto.ProductDTO;
+import com.erichiroshi.dscatalog.dto.UriDTO;
 import com.erichiroshi.dscatalog.entities.Category;
 import com.erichiroshi.dscatalog.entities.Product;
 import com.erichiroshi.dscatalog.mappers.ProductMapper;
@@ -28,6 +31,9 @@ public class ProductService {
 
 	@Autowired
 	private CategoryRepository categoryRepository;
+	
+	@Autowired
+	private S3Service s3Service;
 
 	private ProductMapper mapper = new ProductMapperImpl();
 
@@ -69,5 +75,10 @@ public class ProductService {
 		} catch (DataIntegrityViolationException e) {
 			throw new DatabaseException("Integrity constraint violation");
 		}
+	}
+	
+	public UriDTO uploadFile(MultipartFile file) {
+		URL url = s3Service.uploadFile(file);
+		return new UriDTO(url.toString());
 	}
 }
