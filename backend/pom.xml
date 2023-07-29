@@ -24,6 +24,7 @@
 		<spring-cloud.version>Hoxton.SR12</spring-cloud.version>
 		<aws.java.sdk.version>1.11.913</aws.java.sdk.version>
 		<commons-io.version>2.11.0</commons-io.version>
+		<mail-jet.version>5.2.3</mail-jet.version>
 	</properties>
 
 	<dependencies>
@@ -112,6 +113,12 @@
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
 			<version>${commons-io.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.mailjet</groupId>
+			<artifactId>mailjet-client</artifactId>
+			<version>${mail-jet.version}</version>
 		</dependency>
 	</dependencies>
 

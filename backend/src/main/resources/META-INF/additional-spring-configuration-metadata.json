@@ -28,5 +28,15 @@
     "name": "s3.region",
     "type": "java.lang.String",
     "description": "A description for 's3.region'"
+  },
+  {
+    "name": "spring.mailjet.api-key",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.mailjet.api-key'"
+  },
+  {
+    "name": "spring.mailjet.secret-key",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.mailjet.secret-key'"
   }
 ]}
