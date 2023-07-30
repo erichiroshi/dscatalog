@@ -34,7 +34,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 	private static final String[] OPERATOR_OR_ADMIN = { "/products/**", "/categories/**" };
 
     private static final String[] ADMIN = { "/users/**" };
-
+    
     @Override
     public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
         resources.tokenStore(tokenStore);
@@ -48,6 +48,12 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
             http.headers(headers -> headers. frameOptions().disable());
 		}
 
+		// Swagger
+		http.authorizeRequests((requests) -> requests
+				.antMatchers("/v2/api-docs", "/configuration/ui", "/swagger-resources/**", "/configuration/**",
+						"/swagger-ui.html", "/swagger-ui/**", "/swagger-ui/index.html", "/webjars/**")
+				.permitAll());
+
 		  http.authorizeRequests(requests -> requests
                 .antMatchers(PUBLIC).permitAll()
                 .antMatchers(HttpMethod.GET, OPERATOR_OR_ADMIN).permitAll()
@@ -55,7 +61,6 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
                 .antMatchers(ADMIN).hasRole("ADMIN")
 				.anyRequest().authenticated());
 		http.cors(cors -> cors.configurationSource(corsConfigurationSource()));
-
 	}
 
 	@Bean
@@ -77,5 +82,4 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 		bean.setOrder(Ordered.HIGHEST_PRECEDENCE);
 		return bean;
 	}
-
 }

@@ -25,6 +25,7 @@
 		<aws.java.sdk.version>1.11.913</aws.java.sdk.version>
 		<commons-io.version>2.11.0</commons-io.version>
 		<mail-jet.version>5.2.3</mail-jet.version>
+		<springfox.version>3.0.0</springfox.version>
 	</properties>
 
 	<dependencies>
@@ -120,8 +121,19 @@
 			<artifactId>mailjet-client</artifactId>
 			<version>${mail-jet.version}</version>
 		</dependency>
-	</dependencies>
 
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>${springfox.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>${springfox.version}</version>
+		</dependency>
+	</dependencies>
 
 	<build>
 		<plugins>
