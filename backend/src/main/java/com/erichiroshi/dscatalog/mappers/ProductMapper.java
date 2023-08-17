@@ -10,6 +10,7 @@ import com.erichiroshi.dscatalog.entities.Product;
 @Mapper(componentModel = "spring")
 public interface ProductMapper {
 
+	@Mapping(source = "categories", target = "categories", ignore = true)
 	Product toProduct(ProductDTO dto);
 
 	ProductDTO toDTO(Product entity);
