@@ -1,0 +1,9 @@
+com\erichiroshi\msoauth\entities\User.class
+com\erichiroshi\msoauth\config\AuthorizationServerConfig.class
+com\erichiroshi\msoauth\MsOauthApplication.class
+com\erichiroshi\msoauth\config\AppConfig.class
+com\erichiroshi\msoauth\config\SecurityConfig.class
+com\erichiroshi\msoauth\feignclients\UserFeignClient.class
+com\erichiroshi\msoauth\resources\UserResource.class
+com\erichiroshi\msoauth\services\UserService.class
+com\erichiroshi\msoauth\entities\Role.class

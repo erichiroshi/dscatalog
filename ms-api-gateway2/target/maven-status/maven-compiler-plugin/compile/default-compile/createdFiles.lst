@@ -1,0 +1,3 @@
+com\erichiroshi\msapigateway\config\AppConfig.class
+com\erichiroshi\msapigateway\MsApiGatewayApplication.class
+com\erichiroshi\msapigateway\config\ResourceServerConfig.class

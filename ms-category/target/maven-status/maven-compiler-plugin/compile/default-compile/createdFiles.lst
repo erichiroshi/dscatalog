@@ -1,0 +1,14 @@
+com\erichiroshi\mscategory\services\CategoryService.class
+com\erichiroshi\mscategory\services\exceptions\DatabaseException.class
+com\erichiroshi\mscategory\resources\CategoryResource.class
+com\erichiroshi\mscategory\mappers\CategoryMapper.class
+com\erichiroshi\mscategory\resources\exceptions\ValidationError.class
+com\erichiroshi\mscategory\resources\exceptions\ResourceExceptionHandler.class
+com\erichiroshi\mscategory\mappers\CategoryMapperImpl.class
+com\erichiroshi\mscategory\entities\Category.class
+com\erichiroshi\mscategory\services\exceptions\ResourceNotFoundException.class
+com\erichiroshi\mscategory\resources\exceptions\FieldMessage.class
+com\erichiroshi\mscategory\dto\CategoryDTO.class
+com\erichiroshi\mscategory\MsCategoryApplication.class
+com\erichiroshi\mscategory\resources\exceptions\StandardError.class
+com\erichiroshi\mscategory\repositories\CategoryRepository.class

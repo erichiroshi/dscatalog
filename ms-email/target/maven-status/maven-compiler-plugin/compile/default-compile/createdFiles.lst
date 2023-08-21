@@ -1,0 +1,9 @@
+com\erichiroshi\msemail\services\MailjetEmailService.class
+com\erichiroshi\msemail\MsEmailApplication.class
+com\erichiroshi\msemail\config\sendEmail\TestConfig.class
+com\erichiroshi\msemail\config\sendEmail\DevConfig.class
+com\erichiroshi\msemail\config\sendEmail\ProdConfig.class
+com\erichiroshi\msemail\services\MockEmailService.class
+com\erichiroshi\msemail\dto\EmailDTO.class
+com\erichiroshi\msemail\resources\EmailResource.class
+com\erichiroshi\msemail\services\EmailService.class

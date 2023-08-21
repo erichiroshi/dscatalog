@@ -1,0 +1,13 @@
+C:\ws-sts\Bootcamp DevSuperior\dscatalog\ms-category\src\main\java\com\erichiroshi\mscategory\MsCategoryApplication.java
+C:\ws-sts\Bootcamp DevSuperior\dscatalog\ms-category\src\main\java\com\erichiroshi\mscategory\resources\CategoryResource.java
+C:\ws-sts\Bootcamp DevSuperior\dscatalog\ms-category\src\main\java\com\erichiroshi\mscategory\resources\exceptions\StandardError.java
+C:\ws-sts\Bootcamp DevSuperior\dscatalog\ms-category\src\main\java\com\erichiroshi\mscategory\dto\CategoryDTO.java
+C:\ws-sts\Bootcamp DevSuperior\dscatalog\ms-category\src\main\java\com\erichiroshi\mscategory\services\CategoryService.java
+C:\ws-sts\Bootcamp DevSuperior\dscatalog\ms-category\src\main\java\com\erichiroshi\mscategory\services\exceptions\DatabaseException.java
+C:\ws-sts\Bootcamp DevSuperior\dscatalog\ms-category\src\main\java\com\erichiroshi\mscategory\entities\Category.java
+C:\ws-sts\Bootcamp DevSuperior\dscatalog\ms-category\src\main\java\com\erichiroshi\mscategory\services\exceptions\ResourceNotFoundException.java
+C:\ws-sts\Bootcamp DevSuperior\dscatalog\ms-category\src\main\java\com\erichiroshi\mscategory\resources\exceptions\ValidationError.java
+C:\ws-sts\Bootcamp DevSuperior\dscatalog\ms-category\src\main\java\com\erichiroshi\mscategory\mappers\CategoryMapper.java
+C:\ws-sts\Bootcamp DevSuperior\dscatalog\ms-category\src\main\java\com\erichiroshi\mscategory\repositories\CategoryRepository.java
+C:\ws-sts\Bootcamp DevSuperior\dscatalog\ms-category\src\main\java\com\erichiroshi\mscategory\resources\exceptions\FieldMessage.java
+C:\ws-sts\Bootcamp DevSuperior\dscatalog\ms-category\src\main\java\com\erichiroshi\mscategory\resources\exceptions\ResourceExceptionHandler.java
